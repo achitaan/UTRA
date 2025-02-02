@@ -14,11 +14,11 @@ def detect_fluorescent_green_in_hand(frame, hand_bbox, lower_green=None, upper_g
     # Convert frame to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # Default green range
     if lower_green is None:
-        lower_green = np.array([35, 50, 50], dtype=np.uint8)
+        lower_green = np.array([25, 20, 150], dtype=np.uint8) 
     if upper_green is None:
-        upper_green = np.array([85, 255, 255], dtype=np.uint8)
+        upper_green = np.array([100, 255, 255], dtype=np.uint8) 
+
 
     # Apply thresholding to detect green
     mask = cv2.inRange(hsv, lower_green, upper_green)
